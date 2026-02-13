@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff6b9d,#ff758c,#ff9a9e);
+overflow:hidden;
+transition:0.3s;
+}
+
+/* Floating hearts */
+.heart{
+position:absolute;
+font-size:18px;
+animation:float 6s linear infinite;
+opacity:0.6;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-100px);}
+}
+
+.container{
+background:white;
+padding:40px;
+border-radius:25px;
+box-shadow:0 20px 60px rgba(0,0,0,0.2);
+text-align:center;
+max-width:420px;
+width:90%;
+position:relative;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:44px;
+color:#ff4d6d;
+margin-bottom:20px;
+}
+
+img{
+width:220px;
+margin-bottom:20px;
+}
+
+.buttons{
+position:relative;
+height:90px;
+}
+
+button{
+padding:12px 28px;
+border:none;
+border-radius:40px;
+font-size:16px;
+cursor:pointer;
+position:absolute;
+transition:0.3s;
+}
+
+#yesBtn{
+background:linear-gradient(135deg,#ff4d6d,#ff758c);
+color:white;
+left:40px;
+}
+
+#noBtn{
+background:#eee;
+color:#444;
+right:40px;
+}
+
+.success{
+display:none;
+}
+
+.success h2{
+font-size:30px;
+color:#ff4d6d;
+margin-top:20px;
+}
+
+/* Screen Shake */
+.shake{
+animation:shake 0.3s;
+}
+
+@keyframes shake{
+0%{transform:translateX(0);}
+25%{transform:translateX(-5px);}
+50%{transform:translateX(5px);}
+75%{transform:translateX(-5px);}
+100%{transform:translateX(0);}
+}
+
+/* Fireworks */
+.firework{
+position:absolute;
+width:8px;
+height:8px;
+border-radius:50%;
+animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+0%{transform:translate(0,0) scale(1);}
+100%{transform:translate(var(--x),var(--y)) scale(0);opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="container" id="card">
+<h1>Will You Be My Valentine? 💖</h1>
+
+<img id="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+
+<div class="buttons">
+<button id="yesBtn">Yes 😍</button>
+<button id="noBtn">No 🙈</button>
+</div>
+
+</div>
+
+<script>
+const noBtn=document.getElementById("noBtn");
+const yesBtn=document.getElementById("yesBtn");
+const success=document.getElementById("success");
+const gif=document.getElementById("gif");
+const card=document.getElementById("card");
+const music=document.getElementById("bgMusic");
+
+let noTexts=[
+"Are you sure? 😢",
+"Think again 🥺",
+"Please? 💔",
+"Don't break my heart 😭",
+"Last chance 😩"
+];
+
+let noCount=0;
+let yesSize=1;
+
+/* Floating hearts */
+for(let i=0;i<25;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+document.body.appendChild(heart);
+}
+
+/* No Button Behavior */
+noBtn.addEventListener("mouseover",()=>{
+document.body.classList.add("shake");
+setTimeout(()=>document.body.classList.remove("shake"),300);
+
+noBtn.textContent=noTexts[noCount%noTexts.length];
+noBtn.style.left=Math.random()*250+"px";
+noBtn.style.top=Math.random()*60+"px";
+noBtn.style.transform="scale("+(1-0.1*noCount)+")";
+
+yesSize+=0.1;
+yesBtn.style.transform="scale("+yesSize+")";
+
+noCount++;
+});
+
+yesBtn.addEventListener("click", () => {
+
+    // Optional: fireworks before redirect
+    launchFireworks();
+
+    // Redirect after 1.5 seconds
+    setTimeout(() => {
+        window.location.href = "valentine.html";
+    }, 1500);
+
+});
+
+/* Fireworks */
+function launchFireworks(){
+for(let i=0;i<100;i++){
+let fw=document.createElement("div");
+fw.className="firework";
+fw.style.backgroundColor=`hsl(${Math.random()*360},100%,50%)`;
+fw.style.left="50%";
+fw.style.top="50%";
+fw.style.setProperty("--x",(Math.random()-0.5)*400+"px");
+fw.style.setProperty("--y",(Math.random()-0.5)*400+"px");
+document.body.appendChild(fw);
+setTimeout(()=>fw.remove(),1000);
+}
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Valentines Day Card</title>
+<style>
+    /* The Code that is on instagram post is of SCSS and this is CSS Code */
+
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #d4526e;
+      --secondary: #8b4789;
+      --accent: #f5a9bc;
+      --dark: #2c2c2c;
+      --light: #f8f9fa;
+      --gold: #d4af37;
+    }
+
+    body {
+      font-family: "Poiret One", Segoe UI Light, cursive;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      min-height: 100vh;
+      overflow: hidden;              /* prevents scroll */
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Particle Background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;   /* prevents scroll issues */
+      z-index: 0;
+    }
+
+    /* Floating Decorative Elements */
+    .float-element {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.1;
+      animation: floatRandom 20s ease-in-out infinite;
+    }
+
+    @keyframes floatRandom {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(50px, -50px) rotate(90deg); }
+      50% { transform: translate(-30px, 30px) rotate(180deg); }
+      75% { transform: translate(30px, 50px) rotate(270deg); }
+    }
+
+#card {
+  top: 90px;
+  position: relative;            /* remove absolute */
+  width: 690px;
+  height: 390px;
+  left: 50%;
+  margin-left: -345px;
+}
+
+#card .heart {
+  width: 390px;
+  height: 390px;
+  float: left;
+}
+#card .heart #circle {
+  height: 195px;
+  width: 195px;
+  border-radius: 50%;
+  background-color: #d32f2f;
+}
+#card .heart #rec,
+#card .heart #rec2 {
+  margin-top: -90px;
+  width: 195px;
+  height: 195px;
+  background-color: #d32f2f;
+  border-radius: 35% 0 0 0;
+}
+#card .heart #half2 {
+  -ms-transform: rotate(-90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-90deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+  margin-top: -495px;
+  margin-left: -300px;
+}
+#card #heart2 {
+  margin-top: -90px;
+  margin-left: -195px;
+}
+#card #heart2 #circle,
+#card #heart2 #rec {
+  background-color: #fff;
+}
+#card #heart2 #half2 #rec {
+  border-bottom: 1px solid #eee;
+  margin-top: -91px;
+}
+#card #message {
+  float: left;
+  width: 300px;
+  height: 300px;
+  margin-left: -195px;
+  background-color: #333;
+  border-radius: 35% 0 35% 0;
+  text-align: center;
+}
+#card #message h2 {
+  font-size: 30px;
+  color: #fff;
+  width: 240px;
+  margin-top: 75px;
+  margin-left: 24px;
+}
+#card #heart1 {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-animation: closeLeft 2s ease-in-out forwards;
+  -moz-animation: closeLeft 2s ease-in-out forwards;
+  -ms-animation: closeLeft 2s ease-in-out forwards;
+  animation: closeLeft 2s ease-in-out forwards;
+}
+#card #heart2 {
+  -webkit-animation: closeRight 2s ease-in-out forwards;
+  -moz-animation: closeRight 2s ease-in-out forwards;
+  -ms-animation: closeRight 2s ease-in-out forwards;
+  animation: closeRight 2s ease-in-out forwards;
+}
+
+#card:hover #heart1 {
+  -webkit-animation: openLeft 2s ease-in-out forwards;
+  -moz-animation: openLeft 2s ease-in-out forwards;
+  -ms-animation: openLeft 2 ease-in-out forwards;
+  animation: openLeft 2s ease-in-out forwards;
+}
+#card:hover #heart2 {
+  -webkit-animation: openRight 2s ease-in-out forwards;
+  -moz-animation: openRight 2s ease-in-out forwards;
+  -ms-animation: openRight 2 ease-in-out forwards;
+}
+
+@-webkit-keyframes closeLeft {
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(180deg);
+  }
+}
+@-moz-keyframes closeLeft {
+  from {
+    -moz-transform: rotateY(0deg);
+  }
+  to {
+    -moz-transform: rotateY(180deg);
+  }
+}
+@-ms-keyframes closeLeft {
+  from {
+    -ms-transform: rotateY(0deg);
+  }
+  to {
+    -ms-transform: rotateY(180deg);
+  }
+}
+@keyframes closeLeft {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+@-moz-keyframes openLeft {
+  from {
+    -moz-transform: rotateY(180deg);
+  }
+  to {
+    -moz-transform: rotateY(0deg);
+  }
+}
+@-webkit-keyframes openLeft {
+  from {
+    -webkit-transform: rotateY(180deg);
+  }
+  to {
+    -webkit-transform: rotateY(0deg);
+  }
+}
+@-ms-keyframes openLeft {
+  from {
+    -ms-transform: rotateY(180deg);
+  }
+  to {
+    -ms-transform: rotateY(0deg);
+  }
+}
+@keyframes openLeft {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+@-moz-keyframes openRight {
+  0% {
+    -moz-transform: rotateX(180deg);
+  }
+  100% {
+    -moz-transform: rotateX(0deg) rotateZ(180deg);
+  }
+}
+@-webkit-keyframes openRight {
+  0% {
+    -webkit-transform: rotateX(180deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg) rotateZ(180deg);
+  }
+}
+@-ms-keyframes openRight {
+  0% {
+    -ms-transform: rotateX(180deg);
+  }
+  100% {
+    -ms-transform: rotateX(0deg) rotateZ(180deg);
+  }
+}
+@keyframes openRight {
+  0% {
+    transform: rotateX(180deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateZ(180deg);
+  }
+}
+@-webkit-keyframes closeRight {
+  from {
+    -webkit-transform: rotateX(0deg) rotate(180deg);
+  }
+  to {
+    -webkit-transform: rotateX(180deg);
+  }
+}
+@-moz-keyframes closeRight {
+  from {
+    -moz-transform: rotateX(0deg) rotate(180deg);
+  }
+  to {
+    -moz-transform: rotateX(180deg);
+  }
+}
+@-ms-keyframes closeRight {
+  from {
+    -ms-transform: rotateX(0deg) rotate(180deg);
+  }
+  to {
+    -ms-transform: rotateX(180deg);
+  }
+}
+@keyframes closeRight {
+  from {
+    transform: rotateX(0deg) rotate(180deg);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
+ /* Header */
+    .header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 5px 20px 20px;
+      animation: fadeInDown 1s ease;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--accent), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--accent);
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+</style>
+</head>
+<body>
+ 
+  <div id="card">
+    <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Floating Decorative Elements -->
+  <div class="float-element" style="font-size: 100px; top: 10%; left: 5%;">💝</div>
+  <div class="float-element" style="font-size: 80px; top: 60%; right: 10%; animation-delay: 5s;">💖</div>
+  <div class="float-element" style="font-size: 90px; bottom: 20%; left: 15%; animation-delay: 10s;">💕</div>
+
+     <!-- Header -->
+  <div class="header">
+    <h1>Valentines Day Card</h1>
+    <div class="subtitle">With Love</div>
+  </div>
+    <div class="heart" id="heart1">
+      <div id="half1">
+        <div id="circle"></div>
+        <div id="rec"></div>
+      </div>
+      <div id="half2">
+        <div id="circle"></div>
+        <div id="rec"></div>
+      </div>
+    </div>
+    <div id="message">
+      <h2>Happy Valentines Day</h2>
+      <h2>Yegha....!</h2>
+    </div>
+    <div class="heart" id="heart2">
+      <div id="half1">
+        <div id="circle"></div>
+        <div id="rec"></div>
+      </div>
+      <div id="half2">
+        <div id="circle"></div>
+        <div id="rec"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <script>
+    // Particles Configuration
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: ['#d4526e', '#8b4789', '#f5a9bc', '#d4af37'] },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+        size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1 } },
+        line_linked: { enable: true, distance: 150, color: '#d4526e', opacity: 0.2, width: 1 },
+        move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out' }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: true, mode: 'push' },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 0.5 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
